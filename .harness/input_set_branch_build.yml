@@ -1,0 +1,14 @@
+inputSet:
+  name: Branch Build
+  identifier: Branch_Build
+  orgIdentifier: EVT
+  projectIdentifier: SBrooksChallenge
+  pipeline:
+    identifier: webapp
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
