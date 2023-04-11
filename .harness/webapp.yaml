@@ -1,0 +1,38 @@
+pipeline:
+  name: webapp
+  identifier: webapp
+  projectIdentifier: SBrooksChallenge
+  orgIdentifier: EVT
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.GitHub_Tesin
+        repoName: EVT-Challenge
+        build: <+input>
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.sbrooks
+              namespace: harness-builds
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build And Push to DockerHub
+                  identifier: Build_And_Push_to_DockerHub
+                  spec:
+                    connectorRef: account.Tesin_DockerHub
+                    repo: tesin/evt-challenge
+                    tags:
+                      - latest
