@@ -1,10 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { Container } from 'semantic-ui-react';
-
-import { pageProps } from '@/types/pageProps';
-
-const Splash: React.FC<pageProps> = () => {
+const Splash: React.FC = () => {
   const genRandomTree = (N = 300, reverse = false) => {
     return {
       nodes: [...Array(N).keys()].map((i) => ({ id: i })),

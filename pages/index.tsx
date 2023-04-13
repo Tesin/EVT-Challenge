@@ -10,10 +10,12 @@ import Splash from '@/components/Splash';
 import ReadMe from '@/components/ReadMe';
 
 import 'semantic-ui-css/semantic.min.css';
+import { pageProps } from '@/types/pageProps';
+import { NextPage } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const Home: React.FC = () => {
+const Home: NextPage = () => {
   const [activeItem, setActiveItem] = useState('home');
 
   const handleItemClick = (
@@ -26,7 +28,13 @@ const Home: React.FC = () => {
     setActiveItem(menuItem as string);
   };
 
-  const content = activeItem == 'home' ? Splash : ReadMe;
+  const content = ({ children }: pageProps): React.ReactNode => {
+    if (activeItem == 'home') {
+      return <Splash />;
+    }
+
+    return <ReadMe />;
+  };
 
   return (
     <>
@@ -47,6 +55,7 @@ const Home: React.FC = () => {
             height={75}
             alt="EVT Logo"
             className="logo"
+            priority
           />
           <Menu pointing secondary className="navBar__menu">
             <Menu.Item
@@ -65,7 +74,7 @@ const Home: React.FC = () => {
             />
           </Menu>
         </div>
-        {content()}
+        {content({ children: null })}
       </main>
     </>
   );

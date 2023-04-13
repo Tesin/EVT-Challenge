@@ -1,8 +1,6 @@
 import { Container } from 'semantic-ui-react';
 
-import { pageProps } from '@/types/pageProps';
-
-const ReadMe: React.FC<pageProps> = () => {
+const ReadMe: React.FC = () => {
   return <Container>ReadMe</Container>;
 };
 
