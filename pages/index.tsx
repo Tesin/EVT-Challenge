@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import { useState } from 'react';
 import url from 'url';
 
-import { Button, Menu } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -13,9 +13,12 @@ const inter = Inter({ subsets: ['latin'] });
 const Home: React.FC = () => {
   const [activeItem, setActiveItem] = useState('home');
 
-  const handleItemClick = (event: React.SyntheticEvent<HTMLAnchorElement>) => {
+  const handleItemClick = (
+    event: React.SyntheticEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
     event.preventDefault();
-    const parsedUrl = url.parse(event.target?.href);
+    const target = event.target as HTMLAnchorElement;
+    const parsedUrl = url.parse(target.href);
     const menuItem = parsedUrl.pathname?.replace(/^\/+/, '');
     setActiveItem(menuItem as string);
   };
