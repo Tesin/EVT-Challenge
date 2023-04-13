@@ -1,10 +1,13 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import { useState } from 'react';
 import url from 'url';
 
 import { Menu } from 'semantic-ui-react';
+import Splash from '@/components/Splash';
+import ReadMe from '@/components/ReadMe';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -23,6 +26,8 @@ const Home: React.FC = () => {
     setActiveItem(menuItem as string);
   };
 
+  const content = activeItem == 'home' ? Splash : ReadMe;
+
   return (
     <>
       <Head>
@@ -35,22 +40,32 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Menu pointing secondary className="navBar">
-          <Menu.Item
-            as={Link}
-            href="home"
-            name="home"
-            active={activeItem === 'home'}
-            onClick={handleItemClick.bind('home')}
+        <div className="navBar">
+          <Image
+            src="/evt-logo.png"
+            width={300}
+            height={75}
+            alt="EVT Logo"
+            className="logo"
           />
-          <Menu.Item
-            name="README"
-            as={Link}
-            href="readme"
-            active={activeItem === 'readme'}
-            onClick={handleItemClick.bind('readme')}
-          />
-        </Menu>
+          <Menu pointing secondary className="navBar__menu">
+            <Menu.Item
+              as={Link}
+              href="home"
+              name="home"
+              active={activeItem === 'home'}
+              onClick={handleItemClick.bind('home')}
+            />
+            <Menu.Item
+              name="README"
+              as={Link}
+              href="readme"
+              active={activeItem === 'readme'}
+              onClick={handleItemClick.bind('readme')}
+            />
+          </Menu>
+        </div>
+        {content()}
       </main>
     </>
   );
