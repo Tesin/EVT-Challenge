@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "evt-challenge.fullname" . }}-test-connection"
+  labels:
+    {{- include "evt-challenge.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "evt-challenge.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
