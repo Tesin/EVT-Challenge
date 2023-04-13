@@ -36,3 +36,6 @@ pipeline:
                     repo: tesin/evt-challenge
                     tags:
                       - latest
+                    resources:
+                      limits:
+                        memory: 2Gi
