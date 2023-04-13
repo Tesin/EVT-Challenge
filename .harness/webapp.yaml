@@ -35,4 +35,8 @@ pipeline:
                     connectorRef: account.Tesin_DockerHub
                     repo: tesin/evt-challenge
                     tags:
-                      - latest
+                      - <+codebase.targetBranch>-<+pipeline.sequenceId>
+                    resources:
+                      limits:
+                        memory: 2Gi
+                        cpu: "4"
