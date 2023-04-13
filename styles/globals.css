@@ -105,3 +105,12 @@ a {
     color-scheme: dark;
   }
 }
+
+.navBar {
+  padding: 0.5em;
+  border: none !important;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em !important;
+}
