@@ -105,3 +105,28 @@ a {
     color-scheme: dark;
   }
 }
+
+.navBar {
+  padding: 0.5em;
+  border: none !important;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em !important;
+}
+
+.navBar__menu {
+  border-bottom: none !important;
+}
+
+.contentContainer {
+  flex-flow: row nowrap;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.logo {
+  margin-right: 10em;
+  margin-bottom: 1em;
+}
