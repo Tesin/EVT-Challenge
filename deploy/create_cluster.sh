@@ -1,6 +1,6 @@
 #!/bin/bash
 
-foo=$(cat <<EOF
+spec=$(cat <<EOF
 {
   "label": "evt",
   "region": "dfw",
@@ -23,4 +23,4 @@ EOF
 curl "https://api.vultr.com/v2/kubernetes/clusters" \
   -H "Authorization: Bearer ${VULTR_API_KEY}" \
   -X POST \
-  --data "${foo}"
+  --data "${spec}"
