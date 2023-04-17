@@ -8,7 +8,7 @@ image:
   repository: tesin/evt-challenge
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 'main-25'
+  tag: 'EVT-005-Terraformify-29'
 
 imagePullSecrets: []
 nameOverride: ''
