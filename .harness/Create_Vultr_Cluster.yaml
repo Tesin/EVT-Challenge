@@ -58,3 +58,5 @@ pipeline:
                         -H "Authorization: Bearer ${VULTR_API_KEY}" \
                         -X POST \
                         --data "${spec}"
+                    envVariables:
+                      VULTR_API_KEY: <+secrets.getValue("VULTR_API_KEY")>
