@@ -41,3 +41,9 @@ pipeline:
                         -X DELETE
                     envVariables:
                       VULTR_API_KEY: <+secrets.getValue("VULTR_API_KEY")>
+                      CLUSTER_ID: <+stage.variables.CLUSTER_ID>
+        variables:
+          - name: CLUSTER_ID
+            type: String
+            description: ""
+            value: ""
