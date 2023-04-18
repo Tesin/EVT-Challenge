@@ -1,0 +1,58 @@
+pipeline:
+  name: Create Vultr Cluster
+  identifier: Create_Vultr_Cluster
+  projectIdentifier: SBrooksChallenge
+  orgIdentifier: EVT
+  tags: {}
+  stages:
+    - stage:
+        name: Create Cluster
+        identifier: Create_Cluster
+        type: CI
+        spec:
+          cloneCodebase: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.sbrooks
+              namespace: harness-builds
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Create Cluster
+                  identifier: Create_Cluster
+                  spec:
+                    connectorRef: account.Tesin_DockerHub
+                    image: ubuntu
+                    shell: Bash
+                    command: |-
+                      #!/bin/bash
+
+                      spec=$(cat <<EOF
+                      {
+                        "label": "evt",
+                        "region": "dfw",
+                        "version": "v1.26.2+2",
+                        "node_pools": [
+                          {
+                            "node_quantity": 2,
+                            "min_nodes": 2,
+                            "max_nodes": 5,
+                            "auto_scaler": true,
+                            "label": "my-label",
+                            "plan": "vc2-1c-2gb",
+                            "tag": "my-tag"
+                          }
+                        ]
+                      }
+                      EOF
+                      )
+
+                      curl "https://api.vultr.com/v2/kubernetes/clusters" \
+                        -H "Authorization: Bearer ${VULTR_API_KEY}" \
+                        -X POST \
+                        --data "${spec}"
