@@ -38,7 +38,7 @@ pipeline:
 
                       apt-get update && apt-get install -y curl
 
-                      curl ${API_ENDPOINT} \
+                      curl -s ${API_ENDPOINT} \
                         -H "Authorization: Bearer ${VULTR_API_KEY}" \
                         -X DELETE
                     envVariables:
