@@ -39,3 +39,5 @@ pipeline:
                       curl ${API_ENDPOINT}" \
                         -H "Authorization: Bearer ${VULTR_API_KEY}" \
                         -X DELETE
+                    envVariables:
+                      VULTR_API_KEY: <+secrets.getValue("VULTR_API_KEY")>
