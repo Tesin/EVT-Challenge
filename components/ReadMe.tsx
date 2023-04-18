@@ -1,33 +1,53 @@
 import { useState } from 'react';
-
 import { Accordion, Container, Icon } from 'semantic-ui-react';
+
 import AccordionSection from './AccordionSection';
 import DesignHeader from './DesignHeader';
+import Infrastructure from './sections/Infrastructure';
 
 import classes from './ReadMe.module.css';
+import TheBuild from './sections/TheBuild';
+import WebApp from './sections/WebApp';
+import Deploy from './sections/Deploy';
 
 interface sectionType {
+  id: number;
   title: string;
-  content: string;
+  content: JSX.Element;
 }
 
 const ReadMe: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState('Test');
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const sections: sectionType[] = [
     {
-      title: 'Test',
-      content: 'yeah',
+      id: 0,
+      title: 'Infrastructure',
+      content: <Infrastructure />,
     },
     {
-      title: 'Item 2',
-      content: 'aoweufh',
+      id: 1,
+      title: 'The Build',
+      content: <TheBuild />,
     },
     {
-      title: 'Stuff',
-      content: 'aoruehgow2u4th',
+      id: 2,
+      title: 'The Web App',
+      content: <WebApp />,
+    },
+    {
+      id: 3,
+      title: 'The Deploy',
+      content: <Deploy />,
     },
   ];
+
+  const onClickHandler = (
+    event: React.SyntheticEvent<Element, Event>,
+    sectionId: number
+  ) => {
+    setActiveIndex(sectionId);
+  };
 
   return (
     <Container>
@@ -36,10 +56,12 @@ const ReadMe: React.FC = () => {
         {sections.map((section) => {
           return (
             <AccordionSection
-              key={section.title}
+              key={section.id}
+              id={section.id}
               content={section.content}
               title={section.title}
               isActive={activeIndex}
+              onClick={(event) => onClickHandler(event, section.id)}
             />
           );
         })}

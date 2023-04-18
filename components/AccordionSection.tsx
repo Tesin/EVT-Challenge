@@ -1,25 +1,31 @@
-import { useState } from 'react';
 import { Accordion, Icon } from 'semantic-ui-react';
 
 import classes from './AccordionSection.module.css';
 
 interface sectionProps {
   children?: JSX.Element;
-  content: string;
-  isActive: string;
+  id: number;
+  content: JSX.Element;
   title: string;
+  isActive: number;
+  onClick: (event: React.SyntheticEvent<Element, Event>) => void;
 }
 
 const AccordionSection: React.FC<sectionProps> = (props) => {
-  const [isActive, setIsActive] = useState(props.isActive);
-
   return (
     <div>
-      <Accordion.Title active={isActive == props.title}>
+      <Accordion.Title
+        active={props.isActive == props.id}
+        onClick={props.onClick}
+        className={classes.sectionTitle}
+      >
         <Icon name="dropdown" />
         {props.title}
       </Accordion.Title>
-      <Accordion.Content active={isActive == props.title}>
+      <Accordion.Content
+        active={props.isActive == props.id}
+        className={classes.sectionText}
+      >
         {props.content}
       </Accordion.Content>
     </div>
