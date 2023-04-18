@@ -1,0 +1,3 @@
+1. Get the application URL by running this command:
+
+kubectl -n evt get svc evt-lb -o jsonpath='{.status.loadBalancer.ingress[0].ip}'

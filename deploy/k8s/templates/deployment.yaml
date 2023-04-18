@@ -19,6 +19,7 @@ spec:
       {{- end }}
       labels:
         {{- include "evt-challenge.selectorLabels" . | nindent 8 }}
+        name: webapp
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
