@@ -32,6 +32,8 @@ pipeline:
                     command: |-
                       #!/bin/bash
 
+                      apt-get update && apt-get install -y curl
+
                       spec=$(cat <<EOF
                       {
                         "label": "evt",
