@@ -36,6 +36,8 @@ pipeline:
 
                       API_ENDPOINT="https://api.vultr.com/v2/kubernetes/clusters/${CLUSTER_ID}"
 
+                      apt-get install -y curl
+
                       curl ${API_ENDPOINT} \
                         -H "Authorization: Bearer ${VULTR_API_KEY}" \
                         -X DELETE
