@@ -1,0 +1,43 @@
+.author {
+  margin-top: 1em !important;
+}
+
+.blockquote {
+  align-self: center !important;
+  background-color: rgb(224, 224, 224);
+  border-radius: 1em;
+  font-size: 1.3em;
+  font-style: italic;
+  padding: 1.5em;
+  width: 40%;
+}
+
+.blockquoteContainer {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.designHeader {
+  margin-top: 2em;
+}
+
+.title {
+  font-size: 4em;
+}
+
+.introText {
+  font-size: 1.4em;
+  margin-top: 1.5em;
+}
+
+.introText li {
+  margin-top: 0.5em;
+  margin-left: 3em;
+}
+
+.list {
+  margin-bottom: 1em;
+}
