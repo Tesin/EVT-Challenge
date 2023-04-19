@@ -17,7 +17,7 @@ interface sectionType {
 }
 
 const ReadMe: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const sections: sectionType[] = [
     {

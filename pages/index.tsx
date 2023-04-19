@@ -16,7 +16,7 @@ import { NextPage } from 'next';
 const inter = Inter({ subsets: ['latin'] });
 
 const Home: NextPage = () => {
-  const [activeItem, setActiveItem] = useState('home');
+  const [activeItem, setActiveItem] = useState<string>('home');
 
   const handleItemClick = (
     event: React.SyntheticEvent<HTMLAnchorElement, MouseEvent>
