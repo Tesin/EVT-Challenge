@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Docker quick start:
 
 ```bash
-docker container run -d -p 3000:3000 tesin/evt-challenge:main-25
+docker container run -d -p 3000:3000 tesin/evt-challenge:main-58
 ```
 
 Images can be found on [DockerHub](https://hub.docker.com/repository/docker/tesin/evt-challenge/general)
