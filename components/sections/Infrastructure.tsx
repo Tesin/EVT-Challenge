@@ -36,8 +36,8 @@ const Infrastructure: React.FC = () => {
             <p>
               I tried out their Terraform provider and ran into bugs along with
               a lack of meaningful error messages. It was when I found myself
-              trying to enable TRACE log output for Terraform CLI as an
-              escalation when DEBUG output didn&apos;t provide what I needed
+              trying to enable TRACE log output for Terraform CLI (as an
+              escalation when DEBUG output didn&apos;t provide what I needed)
               when I realized there was a better way.
             </p>
             <p>

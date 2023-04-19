@@ -29,14 +29,14 @@ const DesignHeader: React.FC = () => {
             <li>What end state do we want to end up in?</li>
           </ul>
           It&apos;s fine to implement a thing in the short term as long as it
-          doesn&apos;t impede the long term goals. The biggest set of mistakes I
-          see from organizations is a rush to execute in an attempt to be
-          &quot;agile&quot;; however, the decisions they made early on are
-          immensely difficult to change once it&apos;s serving live traffic.
-          Once the train leaves the station you have to be able to upgrade said
-          train while it&apos;s moving down the tracks... oh, btw, you have 500
-          meters of track left and you have to keep building that as well,
-          otherwise the train will derail.
+          doesn&apos;t inordinately impede the long term goals. The biggest set
+          of mistakes I see from organizations is a rush to execute in an
+          attempt to be &quot;agile&quot;; however, the decisions they made
+          early on are immensely difficult to change once it&apos;s serving live
+          traffic. Once the train leaves the station you have to be able to
+          upgrade said train while it&apos;s moving down the tracks... oh, btw,
+          you have 500 meters of track left and you have to keep building that
+          as well, otherwise the train will derail.
         </p>
         <p>
           Since I am most familiar with{' '}
@@ -54,7 +54,20 @@ const DesignHeader: React.FC = () => {
           want to experience more implementation pain/slowdown up front or down
           the line?
         </p>
-        <p></p>
+        <p>
+          For these reasons, I wanted to grow the architecture organically, so
+          to speak. I started with prototype code and made sure it was
+          deployable. Then I added many features to the app using{' '}
+          <Link
+            href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow"
+            target="_blank"
+          >
+            Simple Feature Branching
+            <Icon className="popoutLink" name="external alternate" />
+          </Link>
+          , approving my own Pull Requests along the way. I made sure to keep
+          the git history clean with a linear graph.
+        </p>
       </div>
     </div>
   );
